@@ -1,0 +1,17 @@
+{
+    "runningMode": "development",
+    "server": {
+      "port": 4001,
+      "context": ""
+    },
+
+    "mongo": {
+      "host": "127.0.0.1:27017/tsv_dev"
+    },
+    "apiUrl": "/api/",
+    "appDataDirectory" : "/opt/apps/.data/tsv",
+    "hosting" : {
+      "url" : "http://127.0.0.1"
+    },
+    "baseURL": "http://127.0.0.1"
+  }

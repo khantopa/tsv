@@ -1,0 +1,150 @@
+@import '../../styles/main.scss';
+
+.container {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  .col-1, .col-2 {
+    padding: 20px;
+    width: 100%;
+    min-height: 100vh;
+  }
+  .col-1 {     
+    background: rgba(0, 0, 0, .18);
+    animation: fadeIn .5s ease;
+    .logout {
+      display: none;
+    }
+    p {
+      padding: 5px;
+    } 
+    .img_container {
+      display: grid;
+      place-items: center; 
+      animation: fadeIn .3s ease;
+      img {
+        margin: 0 auto;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+      }
+    }
+    .upload {
+      margin-top: 20px;
+      button {
+        background: $dark;
+        img {     
+          width: 20px;
+          height: 20px;
+          fill: white;
+        }
+      }
+
+    }
+  }
+  .col-2 {
+    background: $dark;
+    box-sizing: border;
+    box-shadow:inset 5px 0 10px 5px rgba(0, 0, 0, .18);
+    padding: 30px;
+    .logout {
+      background: $dark;
+      box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, .28);
+      align-items: right;
+      mat-icon {
+        align-self: right;
+        color: white;
+      }
+    }
+    .form {
+      height: 80vh;
+      width: 100%;
+      display: grid;
+      place-items: center;
+      padding: 10px 0;
+      label {
+        color: white;
+      }
+      &_group {
+        width: 100%;
+        margin: 5px auto; 
+        &_label {
+          color: white;
+          letter-spacing: 0.02em;
+        }
+        &_field {
+          width: 100%;
+        }
+        &_icon {
+          outline: none;
+          background: none;
+          top: 70%;
+          right: 2%;
+          cursor: pointer;
+        }
+      }
+      button {
+        margin-top: 20px;
+        color: $dark;
+        font-weight: 800;
+        border: 2px solid white;
+        color: white;
+        &:hover {
+          color: $dark;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    display: block;
+    .col-1, .col-2 {
+      padding: 5px;
+      width: 100vw;
+    }
+    .col-1 {
+      width: 100%;
+      padding: 40px;
+      min-height: 220px !important;
+      background: rgba($color: #000000, $alpha: .3);
+      .logout {
+        display: block;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: $dark;
+        box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, .28);
+        align-items: right;
+        mat-icon {
+          align-self: right;
+          color: white;
+        }
+      }
+      .img_container {
+        margin-top: 40px;
+        width: 100%;
+        height: 240px;
+        display: grid;
+        place-items: center;
+        img {
+          width: 200px;
+          height: 200px;
+        } 
+      }
+    }
+    .col-2 {
+      padding: 20px;
+      .logout {
+        display: none;
+      }
+    }
+    p.center {
+      display: none;
+    }
+  }
+}

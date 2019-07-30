@@ -1,0 +1,73 @@
+@import './variable';
+
+// ==============================================
+// --------------------- CARD -------------------
+// ==============================================
+
+.card {
+  padding: 10px;
+  box-shadow: 0 10px 20px 8px rgba(0, 0, 0, .23);
+  border-radius: 5px;
+}
+
+// ===============================================
+// ---------------- BUTTON -----------------------
+// ===============================================
+
+.btn {
+  position: relative;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 3px;
+  border: 2px solid $dark;
+  background: $dark;
+  overflow: hidden;
+  &::before,
+  &::after {
+    background: #fff;
+    content: '';
+    position: absolute;
+    z-index: -1;
+  }
+  &:hover {    
+    color: $dark;
+  }
+  &::after {
+    height: 100%;
+    left: -40%;
+    top: 0;
+    transform: skew(50deg);
+    transition-duration: 0.6s;
+    transform-origin: top left;
+    width: 0;
+  }
+  &:hover::after {
+    height: 100%;
+    width: 135%;
+  }
+}
+
+
+// ================================================
+// ------------------ INPUT -----------------------
+// ================================================
+
+.form_group {
+  position: relative;
+  &_field {
+    all: unset;
+    background: white;
+    width: 100%;
+    height: 35px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    padding: 5px 10px;
+  }
+  &_icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}
+
