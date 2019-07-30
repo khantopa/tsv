@@ -1,0 +1,11 @@
+@mixin background($image) {
+  background-image: url($image);
+  background-size: cover;
+  background-position: center; 
+}
+
+@mixin position($x, $y) {
+  position: absolute;
+  top: $y;
+  left: $x;
+}

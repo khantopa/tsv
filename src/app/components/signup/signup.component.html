@@ -1,0 +1,62 @@
+<div class="signup">
+  <div class="signup_card">
+    <form class="form" ng2FileDrop (fileOver)="fileOverBase($event)" [uploader]="uploader">
+      <div class="form_icon">
+        <img *ngIf="imageUrl" class="form_icon_img" src="{{imageUrl}}" alt="User-icon">
+        <img *ngIf="!imageUrl" class="form_icon_img" src="../../../assets/icons/user-white.svg" alt="User-icon">
+      </div>
+      <div class="upload">
+        <button mat-flat-button (click)="uploadImage()">
+          <mat-icon>cloud_upload</mat-icon>
+        </button>
+        <input #image style="display: none" type="file" name="image" ng2FileSelect [uploader]="uploader"
+          (change)="uploader.uploadAll()" [accept]="allowedType.toString()" hidden />
+      </div>
+      <p>Drop the image to upload</p>
+      <div class="grid">
+        <div class="grid_col">
+          <div class="form_group" [class.has-error]="username.invalid && username.touched">
+            <input type="email" class="form_group_field" placeholder="Username" name="username" [(ngModel)]="user.email"
+              required [email]="username.email !== ''" #username="ngModel">
+            <span class="error" *ngIf="username.errors?.required && username.touched">
+              Username is required
+            </span>
+            <span class="error" *ngIf="username.errors && username.errors.email && username.touched">
+              Username is invalid (enter a valid email-id)
+            </span>
+          </div>
+          <div class="form_group">
+            <input type="text" class="form_group_field" placeholder="First name" name="firstName"
+              [(ngModel)]="user.firstName" required>
+          </div>
+          <div class="form_group">
+            <input type="text" class="form_group_field" placeholder="Last name" name="lastName"
+              [(ngModel)]="user.lastName" required>
+          </div>
+        </div>
+        <div class="grid_col">
+          <div class="form_group">
+            <input type="text" class="form_group_field" placeholder="Phone number" name="phoneNumber"
+              [(ngModel)]="user.phoneNumber" required>
+          </div>
+          <div class="form_group">
+            <input [type]="passwordType" class="form_group_field" placeholder="Password" name="password"
+              [(ngModel)]="user.password">
+            <button [ngStyle]="isShown === true ? { 'color': '#2B2B2B' } : { 'color': 'gray' }" (click)="showPassword()"
+              mat-icon-button class="form_group_icon">
+              <mat-icon>remove_red_eye</mat-icon>
+            </button>
+          </div>
+          <div class="form_group">
+            <input type="password" class="form_group_field" placeholder="Re-enter Password" name="confirmPassword"
+              [(ngModel)]="user.confirmPassword" required>
+          </div>
+        </div>
+      </div>
+      <button (click)="create()" mat-raised-button class="btn">Create</button>
+    </form>
+    <div class="create">
+      <a routerLink="/login">Already have an account?</a>
+    </div>
+  </div>
+</div>

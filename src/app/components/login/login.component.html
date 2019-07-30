@@ -1,0 +1,26 @@
+<div class="login">
+  <div class="login_card">
+    <form class="form">
+      <div class="form_icon">
+        <img src="../../../assets/icons/icon-user.svg" alt="User icon" class="form_icon_img">
+      </div>
+      <div class="form_group">
+        <input type="email" class="form_group_field" placeholder="Username"
+          name="email" [(ngModel)]="user.email">
+      </div>
+      <div class="form_group">
+        <input  [type]="passwordType" class="form_group_field" placeholder="Password"
+          name="password" [(ngModel)]="user.password">
+          <button [ngStyle]="isShown === true ? { 'color': '#2B2B2B' } : { 'color': 'gray' }" 
+              (click)="showPassword()"
+               mat-icon-button class="form_group_icon">
+            <mat-icon>remove_red_eye</mat-icon>
+          </button>
+      </div>
+      <button (click)="login()" mat-raised-button  class="btn">Login</button>
+    </form>
+    <div class="create">
+      <a  routerLink="/signup">Create an account?</a>
+    </div>
+  </div>
+</div>

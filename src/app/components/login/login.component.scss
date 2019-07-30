@@ -1,0 +1,64 @@
+@import '../../styles/main.scss';
+
+.login {
+  @include background('../../../assets/bg.jpg');
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  &_card {
+    @include position(50%, 50%);
+    @extend .card;
+    padding: 30px 20px;
+    width: 280px;
+    transform: translate(-50%, -50%);
+    background: rgba($color: #000000, $alpha: .3);
+    animation: fadeIn .5s ease;
+    .form {
+      width: 100%;
+      display: grid;
+      place-items: center;
+      padding: 10px 0;
+      &_icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 40px;
+        &_img {
+          width: 100%;
+        }
+      }
+      &_group {
+        width: 100%;
+        margin: 5px auto; 
+        &_label {
+          color: white;
+          letter-spacing: 0.02em;
+        }
+        &_field {
+          width: 100%;
+        }
+      }
+      .btn {
+        margin: 20px auto;
+      }
+    }
+  }
+  .create {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+    }
+  }
+}
+
+
+@media (max-width: 700px) {
+  .login_card {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 100px;
+  }
+}
