@@ -1,0 +1,64 @@
+<div class="container" *ngIf="user">
+  <div class="col-1" ng2FileDrop (fileOver)="fileOverBase($event)" [uploader]="uploader">
+    <div class="logout">
+      <button (click)="logout()" mat-icon-button>
+        <mat-icon>input</mat-icon>
+      </button>
+    </div>
+    <div class="img_container">
+      <img src="{{ imageUrl }}" onError="this.src = '../../../assets/icons/icon-user.svg'" alt="User image">
+      <div class="upload">
+        <button mat-raised-button (click)="uploadImage()" class="btn">
+          <mat-icon>cloud_upload</mat-icon>
+        </button>
+        <input #image style="display: none" type="file" name="image" ng2FileSelect [uploader]="uploader"
+          (change)="uploader.uploadAll()" hidden />
+      </div>
+    </div>
+    <p class="center">Drop the image on the white background to upload</p>
+  </div>
+  <div class="col-2">
+    <div class="logout">
+      <button (click)="logout()" mat-icon-button>
+        <mat-icon>input</mat-icon>
+      </button>
+    </div>
+    <form class="form">
+      <div class="form_group">
+        <label for="">Username:</label>
+        <input readonly type="email" class="form_group_field" placeholder="Username" name="email"
+          [(ngModel)]="user.email">
+      </div>
+      <div class="form_group">
+        <label for="">First name:</label>
+        <input type="text" class="form_group_field" placeholder="First name" name="firstName"
+          [(ngModel)]="user.firstName">
+      </div>
+      <div class="form_group">
+        <label for="">Last name:</label>
+        <input type="text" class="form_group_field" placeholder="Last name" name="lastName" [(ngModel)]="user.lastName">
+      </div>
+
+      <div class="form_group">
+        <label for="">Phone number:</label>
+        <input type="text" class="form_group_field" placeholder="Phone number" name="phoneNumber"
+          [(ngModel)]="user.phoneNumber">
+      </div>
+      <div class="form_group">
+        <label for="">Password:</label>
+        <input [type]="passwordType" class="form_group_field" placeholder="Password" name="password"
+          [(ngModel)]="user.password">
+        <span [ngStyle]="isShown === true ? { 'color': '#2B2B2B' } : { 'color': 'gray' }" (click)="showPassword()"
+          class="form_group_icon">
+          <mat-icon>remove_red_eye</mat-icon>
+        </span>
+      </div>
+      <div class="form_group">
+        <label for="">Confirm password:</label>
+        <input type="password" class="form_group_field" placeholder="Re-enter Password" name="confirmPassword"
+          [(ngModel)]="user.confirmPassword">
+      </div>
+      <button (click)="update()" mat-raised-button class="btn">Save Changes</button>
+    </form>
+  </div>
+</div>
