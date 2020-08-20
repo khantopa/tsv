@@ -23,7 +23,7 @@
     "@ngrx/effects": "^7.2.0",
     "@ngrx/store": "^7.2.0",
     "@ngrx/store-devtools": "^7.2.0",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
     "composable-middleware": "^0.3.0",
